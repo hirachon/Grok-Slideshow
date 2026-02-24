@@ -1,0 +1,164 @@
+/* --- スライドショーのコンテナ --- */
+#grok-slideshow-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2); 
+  z-index: 2147483647;
+  
+  display: flex;
+  flex-direction: column;
+  
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+#grok-slideshow-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- メイン画像エリア --- */
+#grok-slideshow-image {
+  flex: 1;
+  width: 100vw;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center top; 
+  background-color: transparent;
+}
+
+/* --- 閉じるボタン --- */
+#grok-slideshow-close {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-size: 40px;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.5;
+  z-index: 2147483650;
+  transition: opacity 0.2s;
+}
+
+#grok-slideshow-close:hover {
+  opacity: 1;
+}
+
+/* --- ナビゲーション矢印 --- */
+.grok-slideshow-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-size: 60px;
+  cursor: pointer;
+  user-select: none;
+  padding: 20px;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+  z-index: 2147483650;
+}
+.grok-slideshow-nav:hover { opacity: 1; background: rgba(0,0,0,0.2); border-radius: 50%; }
+
+#grok-nav-prev { left: 0px; }
+#grok-nav-next { right: 0px; }
+
+/* --- フッターエリア --- */
+#grok-slideshow-footer {
+  width: 100%;
+  height: 40px;
+  flex-shrink: 0;
+  background: rgba(0,0,0,0.8);
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  
+  position: relative;
+  padding: 0 15px;
+  box-sizing: border-box;
+  z-index: 2147483650;
+}
+
+/* --- カウンター表示 --- */
+#grok-slideshow-counter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  color: #ccc;
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* --- ダウンロード操作パネル --- */
+#grok-controls-panel {
+  display: flex;
+  gap: 8px;
+}
+
+.grok-action-btn {
+  background: transparent;
+  color: #ccc;
+  border: 1px solid #555;
+  border-radius: 3px;
+  padding: 3px 8px;
+  font-family: sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.grok-action-btn:hover {
+  background: #333;
+  color: white;
+  border-color: #888;
+}
+
+/* --- 通知 --- */
+#grok-slideshow-notification {
+  position: absolute;
+  bottom: 50px;
+  right: 15px;
+  background: rgba(0, 120, 255, 0.9);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 2147483650;
+}
+
+/* --- 【変更箇所】サムネイル上のFullボタン --- */
+.grok-expand-btn {
+  position: absolute;
+  top: 5px;
+  left: 5px; /* rightからleftに変更 */
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0.8;
+}
+.grok-expand-btn:active { transform: scale(0.95); }
+.grok-loading { opacity: 0.7; cursor: wait; }

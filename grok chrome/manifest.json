@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Grok Imagine Slideshow Pro",
+  "version": "2.1",
+  "description": "Grokの画像生成をフルスクリーン・スライドショーで閲覧・保存します。",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://grok.com/*"],
+      // ↓ここを変更！ jszip.min.js を先頭に追加します
+      "js": ["jszip.min.js", "content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
