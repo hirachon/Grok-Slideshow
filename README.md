@@ -12,3 +12,5 @@ https://grok.com/imagine
 <img width="3695" height="1872" alt="image" src="https://github.com/user-attachments/assets/100e87d1-5701-4598-b91a-fa20e242d401" />
 
 <img width="3713" height="1881" alt="image" src="https://github.com/user-attachments/assets/1e3a1b39-65c3-419b-951d-45bc51a7577d" />
+
+JSZip (MIT License) を使用しています
